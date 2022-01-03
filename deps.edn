@@ -1,7 +1,12 @@
 {:aliases {:cljs/user           {:extra-deps {jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
                                                                      :sha     "98438e796319b4fa323ef510c5a9b225f8d12158"}
                                               hashp/hashp {:mvn/version "0.2.1"}}
-                                 :main-opts  ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:deps true :devtools {:preloads [flow-storm.preload hashp.core]}}"]}
+                                 :main-opts  ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:builds {:app {:closure-defines {shadow.cljs.devtools.client.env/log false}}} :deps true :devtools {:preloads [hashp.core]}}"]}
+           :repl-server         {:exec-fn clojure.core.server/start-server
+                                 :exec-args {:name "repl-server"
+                                             :port 5555
+                                             :accept clojure.core.server/repl
+                                             :server-daemon false}}
            :re-frame-10x        {:extra-deps {day8.re-frame/re-frame-10x {:mvn/version "1.1.13"}}}
 
            :re-frisk            {:extra-deps {re-frisk/re-frisk {:mvn/version "1.5.2"}}}
