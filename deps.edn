@@ -14,7 +14,8 @@
            :portal {:extra-deps {djblue/portal {:mvn/version "0.21.2"}}}
 
            :flow-storm-debugger {:extra-deps {jpmonettas/flow-storm-debugger {:mvn/version "0.6.0"}
-                                              org.openjfx/javafx-controls {:mvn/version "17.0.2"}}
+                                              org.openjfx/javafx-controls {:mvn/version "17.0.2"}
+                                              org.openjfx/javafx-web {:mvn/version "17.0.2"}}
                                  :main-opts ["-m" "flow-storm-debugger.main"]}
 
            :flow-storm {:extra-deps {jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
