@@ -1,4 +1,4 @@
-{:aliases {:cljs/user {:extra-deps {jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
+{:aliases {:user/cljs {:extra-deps {jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
                                                            :sha "98438e796319b4fa323ef510c5a9b225f8d12158"}
                                     org.babashka/sci {:mvn/version "0.3.5"}
                                     hashp/hashp {:mvn/version "0.2.1"}}
