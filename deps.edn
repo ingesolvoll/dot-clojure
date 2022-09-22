@@ -1,8 +1,9 @@
 {:aliases {:user/cljs {:extra-deps {jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
                                                            :sha "98438e796319b4fa323ef510c5a9b225f8d12158"}
+                                    #_#_com.github.jpmonettas/flow-storm-inst {:mvn/version "3.0.184"}
                                     org.babashka/sci {:mvn/version "0.3.5"}
                                     hashp/hashp {:mvn/version "0.2.1"}}
-                       :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:builds {:app {:closure-defines {shadow.cljs.devtools.client.env/log false}}} :devtools {:preloads [hashp.core flow-storm.preload]}}"]}
+                       :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [hashp.core flow-storm.preload]}}"]}
            :repl-server {:exec-fn clojure.core.server/start-server
                          :exec-args {:name "repl-server"
                                      :port 5555
@@ -18,11 +19,7 @@
                                               org.openjfx/javafx-controls {:mvn/version "17.0.2"}
                                               org.openjfx/javafx-web {:mvn/version "17.0.2"}}
                                  :main-opts ["-m" "flow-storm-debugger.main"]}
+           :flow-storm-new {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.0.184"}}
+                            :exec-fn flow-storm.debugger.main/start-debugger}
 
-           :flow-storm {:extra-deps {jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
-                                                            :sha "98438e796319b4fa323ef510c5a9b225f8d12158"}}}
-
-           :hashp {:extra-deps {hashp/hashp {:mvn/version "0.2.1"}}}
-
-           :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
-                      :main-opts ["-m" "antq.core"]}}}
+           :hashp {:extra-deps {hashp/hashp {:mvn/version "0.2.1"}}}}}
