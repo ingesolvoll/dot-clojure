@@ -1,4 +1,4 @@
-{:aliases {:user/cljs {:extra-deps {;com.github.jpmonettas/flow-storm-inst {:mvn/version "3.1.263"}
+{:aliases {:user/cljs-repl {:extra-deps {;com.github.jpmonettas/flow-storm-inst {:mvn/version "3.1.263"}
                                     ;; Latest transit needed for new flow-storm to not crash
                                     ;com.cognitect/transit-cljs {:mvn/version "0.8.280"}
                                     jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
