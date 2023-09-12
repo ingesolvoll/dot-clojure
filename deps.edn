@@ -1,4 +1,11 @@
-{:aliases {:user/cljs-repl {:extra-deps {com.github.jpmonettas/flow-storm-inst {:mvn/version "3.7.3"}
+{:aliases {:user/cljs-repl {:extra-deps {#_#_com.github.jpmonettas/flow-storm-inst {:mvn/version "3.3.309"
+                                                                                :exclusions [org.slf4j/slf4j-nop]}
+                                         ;; Latest transit needed for new flow-storm to not crash
+                                         ;com.cognitect/transit-cljs {:mvn/version "0.8.280"}
+                                         jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
+                                                                    :sha "98438e796319b4fa323ef510c5a9b225f8d12158"}
+                                         ;; Latest flow-storm crashes shadow-cljs without this
+                                         com.google.guava/guava {:mvn/version "31.1-jre"}
                                          hashp/hashp {:mvn/version "0.2.1"}}
                             :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [hashp.core flow-storm.preload]}}"]}
            :repl-server {:exec-fn clojure.core.server/start-server
@@ -12,16 +19,10 @@
                                          org.openjfx/javafx-web {:mvn/version "17.0.2"}}
                             :main-opts ["-m" "flow-storm-debugger.main"]}
 
-           :flow-storm-app {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.3"}}
+           :flow-storm-new {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.3.309"}}
                             :exec-fn flow-storm.debugger.main/start-debugger
                             :exec-args {:port 44264
                                         :repl-type :shadow
                                         :build-id :app}}
-
-           :flow-storm-cloud {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.3"}}
-                              :exec-fn flow-storm.debugger.main/start-debugger
-                              :exec-args {:port 44264
-                                          :runtime-host "127.0.0.1"
-                                          :debugger-host "127.0.0.1"}}
 
            :hashp {:extra-deps {hashp/hashp {:mvn/version "0.2.2"}}}}}
