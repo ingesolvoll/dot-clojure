@@ -6,8 +6,9 @@
                                                                     :sha "98438e796319b4fa323ef510c5a9b225f8d12158"}
                                          ;; Latest flow-storm crashes shadow-cljs without this
                                          com.google.guava/guava {:mvn/version "31.1-jre"}
-                                         hashp/hashp {:mvn/version "0.2.1"}}
-                            :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [hashp.core flow-storm.preload]}}"]}
+                                         hashp/hashp {:mvn/version "0.2.1"}
+                                         metosin/malli {:local/root "../../malli"}}
+                            :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [hashp.core flow-storm.preload malli.dev.cljs-kondo-preload]}}"]}
            :repl-server {:exec-fn clojure.core.server/start-server
                          :exec-args {:name "repl-server"
                                      :port 5555
