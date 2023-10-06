@@ -1,6 +1,4 @@
-{:aliases {#_#_:user/cljs-repl {:extra-deps {#_#_com.github.jpmonettas/flow-storm-inst {:mvn/version "3.3.309"
-                                                                                        :exclusions [org.slf4j/slf4j-nop]}
-                                             ;; Latest transit needed for new flow-storm to not crash
+{:aliases {#_#_:user/cljs-repl {:extra-deps {;; Latest transit needed for new flow-storm to not crash
                                              ;com.cognitect/transit-cljs {:mvn/version "0.8.280"}
                                              jpmonettas/flow-storm {:git/url "https://github.com/jpmonettas/flow-storm.git"
                                                                     :sha "98438e796319b4fa323ef510c5a9b225f8d12158"}
@@ -10,14 +8,14 @@
                                              metosin/malli {:mvn/version "0.13.0"}}
                                 :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [hashp.core flow-storm.preload malli.dev.cljs-kondo-preload]}}"]}
            :user/cljs-repl {:classpath-overrides {org.clojure/clojurescript nil}
-                            :extra-deps {com.github.jpmonettas/flow-storm-inst {:mvn/version "RELEASE"}
-                                         com.github.jpmonettas/clojurescript {:mvn/version "RELEASE"}
-                                         hashp/hashp {:mvn/version "0.2.1"}
+                            :extra-deps {com.github.jpmonettas/flow-storm-inst {:mvn/version "3.7.5"}
+                                         com.github.jpmonettas/clojurescript {:mvn/version "1.11.60-3"}
+                                         hashp/hashp {:mvn/version "0.2.2"}
                                          metosin/malli {:mvn/version "0.13.0"}}
-                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=board"
+                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board.wireframe"
                                        "-Dcljs.storm.instrumentEnable=true"
                                        "-Dflowstorm.startRecording=false"]
-                            :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [flow-storm.storm-preload malli.dev.cljs-kondo-preload hashp.core]}}"]}
+                            :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [flow-storm.storm-preload app.malli.preload hashp.core malli.dev.cljs-kondo-preload]}}"]}
            :repl-server {:exec-fn clojure.core.server/start-server
                          :exec-args {:name "repl-server"
                                      :port 5555
@@ -29,7 +27,7 @@
                                          org.openjfx/javafx-web {:mvn/version "17.0.2"}}
                             :main-opts ["-m" "flow-storm-debugger.main"]}
 
-           :flow-storm-new {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "RELEASE"}}
+           :flow-storm-new {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}
                             :exec-fn flow-storm.debugger.main/start-debugger
                             :exec-args {:port 44264
                                         :repl-type :shadow
