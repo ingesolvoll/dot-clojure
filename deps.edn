@@ -9,10 +9,10 @@
                                 :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [hashp.core flow-storm.preload malli.dev.cljs-kondo-preload]}}"]}
            :user/cljs-repl {:classpath-overrides {org.clojure/clojurescript nil}
                             :extra-deps {com.github.jpmonettas/flow-storm-inst {:mvn/version "3.7.5"}
-                                         com.github.jpmonettas/clojurescript {:mvn/version "1.11.60-3"}
+                                         com.github.jpmonettas/clojurescript {:mvn/version "1.11.60-4"}
                                          hashp/hashp {:mvn/version "0.2.2"}
                                          metosin/malli {:mvn/version "0.13.0"}}
-                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board.wireframe"
+                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board"
                                        "-Dcljs.storm.instrumentEnable=true"
                                        "-Dflowstorm.startRecording=false"]
                             :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [flow-storm.storm-preload app.malli.preload hashp.core malli.dev.cljs-kondo-preload]}}"]}
