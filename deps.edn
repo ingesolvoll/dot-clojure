@@ -1,6 +1,6 @@
 {:aliases {:user/cljs-repl {:classpath-overrides {org.clojure/clojurescript nil}
-                            :extra-deps {com.github.jpmonettas/flow-storm-inst {:mvn/version "3.7.5"}
-                                         com.github.jpmonettas/clojurescript {:mvn/version "1.11.60-4"}
+                            :extra-deps {com.github.flow-storm/flow-storm-inst {:mvn/version "3.8.2"}
+                                         com.github.flow-storm/clojurescript {:mvn/version "1.11.60-4"}
                                          hashp/hashp {:mvn/version "0.2.2"}
                                          metosin/malli {:mvn/version "0.13.0"}}
                             :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board"
@@ -13,7 +13,7 @@
                                      :accept clojure.core.server/repl
                                      :server-daemon false}}
 
-           :flow-storm {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}
+           :flow-storm {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "3.8.2"}}
                         :exec-fn flow-storm.debugger.main/start-debugger
                         :exec-args {:port 44264
                                     :repl-type :shadow
