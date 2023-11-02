@@ -3,7 +3,7 @@
                                          com.github.flow-storm/clojurescript {:mvn/version "1.11.60-4"}
                                          hashp/hashp {:mvn/version "0.2.2"}
                                          metosin/malli {:mvn/version "0.13.0"}}
-                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board"
+                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board,uni,app,red.canvas,notes"
                                        "-Dcljs.storm.instrumentEnable=true"
                                        "-Dflowstorm.startRecording=false"]
                             :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [flow-storm.storm-preload app.malli.preload hashp.core malli.dev.cljs-kondo-preload]}}"]}
