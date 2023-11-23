@@ -1,20 +1,6 @@
-{:aliases {:user/cljs-repl {:classpath-overrides {org.clojure/clojurescript nil}
-                            :extra-deps {com.github.flow-storm/flow-storm-inst {:mvn/version "3.8.2"}
-                                         com.github.flow-storm/clojurescript {:mvn/version "1.11.60-4"}
-                                         hashp/hashp {:mvn/version "0.2.2"}
-                                         metosin/malli {:mvn/version "0.13.0"}}
-                            :jvm-opts ["-Dcljs.storm.instrumentOnlyPrefixes=editor,board,uni,app,red.canvas,notes"
-                                       "-Dcljs.storm.instrumentEnable=true"
-                                       "-Dflowstorm.startRecording=false"]
-                            :main-opts ["-m" "shadow.cljs.devtools.cli" "--config-merge" "{:devtools {:preloads [flow-storm.storm-preload app.malli.preload hashp.core malli.dev.cljs-kondo-preload]}}"]}
+{:aliases {:user/cljs-repl {}
            :repl-server {:exec-fn clojure.core.server/start-server
                          :exec-args {:name "repl-server"
                                      :port 5555
                                      :accept clojure.core.server/repl
-                                     :server-daemon false}}
-
-           :flow-storm {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "3.8.2"}}
-                        :exec-fn flow-storm.debugger.main/start-debugger
-                        :exec-args {:port 44264
-                                    :repl-type :shadow
-                                    :build-id :app}}}}
+                                     :server-daemon false}}}}
